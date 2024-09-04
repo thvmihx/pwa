@@ -17,3 +17,19 @@ document.getElementById('notify-btn').addEventListener('click', function() {
         });
     }
 });
+
+// No arquivo principal
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
+      registration.active.postMessage({ type: 'MESSAGE_TYPE', data: 'example' });
+    });
+  }
+  
+  // No Service Worker
+  self.addEventListener('message', event => {
+    if (event.data.type === 'MESSAGE_TYPE') {
+      // Processa a mensagem
+      console.log(event.data.data);
+    }
+  });
+  
