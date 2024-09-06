@@ -6,7 +6,7 @@ const URLS_TO_CACHE = [
     'manifest.json',
     'icon.png'
 ];
-
+//quando e feito pela primeira vez
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
